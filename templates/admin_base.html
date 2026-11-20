@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block titulo %}Publicaciones{% endblock %} · Administración · RT Producciones</title>
+  <link rel="icon" type="image/svg+xml" href="/marca/icono-rt.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <main class="admin-contenedor">
+    <a class="marca marca-admin" href="/" aria-label="RT Producciones, página principal"><img src="/marca/logo-rt.svg" width="460" height="112" alt="RT Producciones"></a>
+    <nav class="admin-navegacion" aria-label="Administración">
+      <a href="/admin">Panel</a>
+      <a href="/admin/equipos">Equipos</a>
+      <a href="/admin/publicaciones">Publicaciones</a>
+      <a href="/">Ver página pública</a>
+    </nav>
+    {% for mensaje in get_flashed_messages() %}
+    <p class="aviso" role="status">{{ mensaje }}</p>
+    {% endfor %}
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

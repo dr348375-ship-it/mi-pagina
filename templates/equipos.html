@@ -1,0 +1,20 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}Equipos{% endblock %}
+{% block contenido %}
+<h1>Equipos</h1>
+<p><a href="{{ url_for('equipment_form') }}">Crear equipo</a></p>
+{% for equipo in equipos %}
+<article class="admin-tarjeta">
+  <img class="foto-equipo" src="{{ equipo.imagen }}" alt="{{ equipo.textoAlternativo }}">
+  <h2>{{ equipo.nombre }}</h2>
+  <p>{{ categorias.get(equipo.categoria, equipo.categoria) }}</p>
+  <p>{{ equipo.descripcion }}</p>
+  <div class="admin-acciones">
+    <a href="{{ url_for('equipment_form', equipment_id=equipo.id) }}" aria-label="Editar {{ equipo.nombre }}">Editar</a>
+    <a href="{{ url_for('equipment_delete', equipment_id=equipo.id) }}" aria-label="Eliminar {{ equipo.nombre }}">Eliminar</a>
+  </div>
+</article>
+{% else %}
+<p>Todavía no hay equipos. Crea el primero para mostrarlo en el catálogo.</p>
+{% endfor %}
+{% endblock %}

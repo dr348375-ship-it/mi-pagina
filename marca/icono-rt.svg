@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104">
+  <rect width="104" height="104" rx="22" fill="#fbbf24"/>
+  <g fill="#111827">
+    <path fill-rule="evenodd" d="M16 19h24c14 0 21 7 21 18 0 8-4 13-11 16l14 19H49L37 55h-8v17H16V19zm13 12v12h11c5 0 8-2 8-6s-3-6-8-6H29z"/>
+    <path d="M57 19h34v12H80v41H67V31H57z"/>
+    <rect x="18" y="84" width="8" height="7" rx="2"/><rect x="31" y="79" width="8" height="12" rx="2"/><rect x="44" y="75" width="8" height="16" rx="2"/><rect x="57" y="80" width="8" height="11" rx="2"/><rect x="70" y="76" width="8" height="15" rx="2"/><rect x="83" y="84" width="8" height="7" rx="2"/>
+  </g>
+</svg>

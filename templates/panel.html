@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración · RT Producciones</title>
+  <link rel="icon" type="image/svg+xml" href="/marca/icono-rt.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <main class="admin-contenedor">
+    <a class="marca marca-admin" href="/" aria-label="RT Producciones, página principal"><img src="/marca/logo-rt.svg" width="460" height="112" alt="RT Producciones"></a>
+    <a href="/">Ver página pública</a>
+    <h1>Administración</h1>
+    <p>Tu sesión está iniciada.</p>
+    <p>Equipos guardados: <strong>{{ counts.get('equipos', 0) }}</strong></p>
+    <p>Publicaciones guardadas: <strong>{{ counts.get('publicaciones', 0) }}</strong></p>
+    <p><a href="{{ url_for('equipment_list') }}">Administrar equipos</a></p>
+    <p><a href="{{ url_for('publications_list') }}">Administrar publicaciones</a></p>
+    <form action="/admin/salir" method="post">
+      <input type="hidden" name="csrf" value="{{ session.csrf }}">
+      <button class="boton" type="submit">Cerrar sesión</button>
+    </form>
+  </main>
+</body>
+</html>

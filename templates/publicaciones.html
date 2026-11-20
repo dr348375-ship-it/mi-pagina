@@ -1,0 +1,20 @@
+{% extends 'admin_base.html' %}
+{% block contenido %}
+<h1>Publicaciones</h1>
+<p><a href="{{ url_for('publication_form') }}">Crear publicación</a></p>
+{% for publicacion in publicaciones %}
+<article class="admin-tarjeta">
+  {% if publicacion.imagen %}
+  <img class="foto-publicacion" src="{{ publicacion.imagen }}" alt="{{ publicacion.textoAlternativo }}" loading="lazy">
+  {% endif %}
+  <h2>{{ publicacion.titulo }}</h2>
+  <p>{{ publicacion.etiqueta }} · <time datetime="{{ publicacion.fecha }}">{{ publicacion.fecha }}</time></p>
+  <div class="admin-acciones">
+    <a href="{{ url_for('publication_form', publication_id=publicacion.id) }}" aria-label="Editar {{ publicacion.titulo }}">Editar</a>
+    <a href="{{ url_for('publication_delete', publication_id=publicacion.id) }}" aria-label="Eliminar {{ publicacion.titulo }}">Eliminar</a>
+  </div>
+</article>
+{% else %}
+<p>Todavía no hay publicaciones. Crea la primera para mostrarla en tu página.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}{{ 'Editar' if editando else 'Crear' }} equipo{% endblock %}
+{% block contenido %}
+<h1>{{ 'Editar' if editando else 'Crear' }} equipo</h1>
+<p>Al guardar, los cambios aparecerán en el catálogo público.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" enctype="multipart/form-data">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <input type="hidden" name="revision" value="{{ revision }}">
+  <label for="nombre">Nombre del equipo</label>
+  <input id="nombre" name="nombre" value="{{ equipo.nombre }}" maxlength="120" required>
+  <label for="categoria">Categoría</label>
+  <select id="categoria" name="categoria" required>
+    {% for valor, nombre in categorias.items() %}
+    <option value="{{ valor }}" {% if equipo.categoria == valor %}selected{% endif %}>{{ nombre }}</option>
+    {% endfor %}
+  </select>
+  <label for="descripcion">Descripción</label>
+  <textarea id="descripcion" name="descripcion" rows="5" maxlength="1500" required>{{ equipo.descripcion }}</textarea>
+  {% if equipo.imagen %}
+  <p>Foto actual</p>
+  <img class="foto-equipo" src="{{ equipo.imagen }}" alt="{{ equipo.textoAlternativo }}">
+  {% endif %}
+  <label for="foto">{{ 'Reemplazar foto (opcional)' if editando else 'Foto del equipo' }}</label>
+  <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="ayuda-foto" {% if not editando %}required{% endif %}>
+  <small id="ayuda-foto">JPG, PNG o WebP. Máximo 5 MB y 20 megapíxeles.{% if editando %} Deja este campo vacío para conservar la foto actual.{% endif %}</small>
+  <label for="textoAlternativo">Descripción breve de la foto</label>
+  <input id="textoAlternativo" name="textoAlternativo" value="{{ equipo.textoAlternativo }}" maxlength="200" placeholder="Por ejemplo, bocina negra vista de frente" required>
+  <button class="boton" type="submit">Guardar equipo</button>
+  <a href="{{ url_for('equipment_list') }}">Cancelar</a>
+</form>
+{% endblock %}

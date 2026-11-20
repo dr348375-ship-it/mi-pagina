@@ -1,0 +1,104 @@
+.admin-contenedor {
+  max-width: 560px;
+  margin: auto;
+  text-align: left;
+}
+.admin-contenedor h1 {
+  font-size: 32px;
+  margin-top: 24px;
+}
+.admin-contenedor a {
+  color: #fbbf24;
+}
+.admin-contenedor form {
+  display: grid;
+  gap: 12px;
+}
+.admin-contenedor input:not([type="hidden"]):not([type="checkbox"]) {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  font: inherit;
+}
+.admin-contenedor button {
+  border: 0;
+  margin-top: 16px;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+.admin-contenedor .error {
+  color: #fecaca;
+}
+
+.admin-navegacion,
+.admin-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.admin-navegacion a,
+.admin-acciones a {
+  display: inline-block;
+  padding: 12px 0;
+}
+.admin-tarjeta {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+.admin-tarjeta h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+.admin-contenedor textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+}
+.admin-contenedor .aviso {
+  margin-top: 24px;
+  color: #bbf7d0;
+}
+.admin-contenedor .peligro {
+  background-color: #fecaca;
+  color: #450a0a;
+}
+.admin-contenedor :is(input, textarea, a):focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+.admin-contenedor select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  font: inherit;
+}
+.admin-contenedor select:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+.admin-tarjeta p {
+  white-space: pre-line;
+}
+
+.opcion-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.opcion-checkbox input {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RT Producciones | Renta de audio en Guadalajara</title>
+  <meta name="description" content="RT Producciones: renta de equipo de audio para fiestas, reuniones y eventos en Guadalajara, Jalisco. Cotiza por WhatsApp al 33 1850 1448.">
+  <meta name="theme-color" content="#111827">
+  <link rel="icon" type="image/svg+xml" href="/marca/icono-rt.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <p id="estado-contenido" role="status">Cargando catálogo y publicaciones…</p>
+  <header class="encabezado-marca">
+    <a class="marca" href="#inicio" aria-label="RT Producciones, inicio">
+      <img src="/marca/logo-rt.svg" width="460" height="112" alt="RT Producciones">
+    </a>
+  <nav class="menu" aria-label="Menú principal">
+  <a href="#inicio">Inicio</a>
+  <a href="#equipos">Equipos</a>
+  <a href="#publicaciones">Publicaciones</a>
+  <a href="#contacto">Contacto</a>
+  </nav>
+  </header>
+
+  <main>
+  <section class="presentacion" id="inicio" aria-labelledby="titulo-inicio">
+  <p class="ubicacion">Guadalajara, Jalisco</p>
+  <h1 id="titulo-inicio">El sonido de tu próximo evento.</h1>
+  <p>En RT Producciones rentamos equipo de audio para tus fiestas, reuniones y eventos en Guadalajara.</p>
+  <a class="boton" href="https://wa.me/523318501448">
+  Cotizar por WhatsApp
+  </a>
+  </section>
+  <section class="catalogo" id="equipos">
+  <h2>Equipos disponibles</h2>
+  <p>Encuentra el sonido que necesitas para tu evento.</p>
+
+  <div class="filtros" role="group" aria-label="Filtrar equipos por categoría">
+  <button type="button" data-filtro="todos" aria-pressed="true">
+    Todos
+  </button>
+
+  <button type="button" data-filtro="bocinas" aria-pressed="false">
+    Bocinas
+  </button>
+
+  <button type="button" data-filtro="microfonos" aria-pressed="false">
+    Micrófonos
+  </button>
+
+  <button type="button" data-filtro="mezcladoras" aria-pressed="false">
+    Mezcladoras
+  </button>
+</div>
+
+  <div class="equipos"></div>
+  
+  <template id="plantilla-equipo">
+    <article class="tarjeta">
+      <img class="foto-equipo" src="" alt="">
+      <h3></h3>
+      <p></p>
+  
+      <a class="boton cotizar-equipo" href="https://wa.me/523318501448">
+        Cotizar este equipo
+      </a>
+    </article>
+  </template>
+  </section>
+  
+  <section class="publicaciones" id="publicaciones">
+  <h2>Novedades y eventos</h2>
+  <p>Conoce nuestras noticias y propuestas para tu próximo evento.</p>
+
+  <div class="lista-publicaciones"></div>
+
+  <template id="plantilla-publicacion">
+    <article class="publicacion">
+      <img class="foto-publicacion" alt="" loading="lazy" hidden>
+      <span class="etiqueta"></span>
+      <h3></h3>
+      <time></time>
+      <p></p>
+      <a href="#contacto">Solicitar información</a>
+    </article>
+  </template>
+  </section>
+  <section class="contacto" id="contacto">
+    <h2>Hablemos de tu evento</h2>
+    <p>RT Producciones · Guadalajara, Jalisco</p>
+    <p>
+      Escríbenos la fecha, el lugar y cuántas personas asistirán
+      para ayudarte a elegir el equipo.
+    </p>
+
+    <a class="boton" href="https://wa.me/523318501448">
+      WhatsApp · 33 1850 1448
+    </a>
+</section>
+  </main>
+<footer class="pie-pagina">
+  <img class="logo-pie" src="/marca/logo-rt.svg" width="460" height="112" alt="RT Producciones">
+  <p>Renta de equipo de audio en Guadalajara, Jalisco.</p>
+
+  <a href="#inicio">Volver al inicio ↑</a>
+
+  <p><a href="/admin">Administración</a></p>
+  <small>© 2026 RT Producciones</small>
+</footer>
+</body>
+</html>

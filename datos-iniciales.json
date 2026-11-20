@@ -1,0 +1,44 @@
+{
+  "equipos": [
+    {
+      "id": "bocina-1",
+      "nombre": "Bocina amplificada",
+      "categoria": "bocinas",
+      "descripcion": "Para música y voz en fiestas y reuniones.",
+      "imagen": "Imagenes/bocina-provisional.png",
+      "textoAlternativo": "Bocina amplificada vista de frente"
+    },
+    {
+      "id": "microfono-1",
+      "nombre": "Micrófono inalámbrico",
+      "categoria": "microfonos",
+      "descripcion": "Muévete con libertad durante tu presentación.",
+      "imagen": "Imagenes/microfono-provisional.png",
+      "textoAlternativo": "Micrófono inalámbrico"
+    },
+    {
+      "id": "mezcladora-1",
+      "nombre": "Mezcladora de audio",
+      "categoria": "mezcladoras",
+      "descripcion": "Controla el sonido de varios micrófonos e instrumentos.",
+      "imagen": "Imagenes/mezcladora-provisional.png",
+      "textoAlternativo": "Mezcladora de audio con sus controles"
+    }
+  ],
+  "publicaciones": [
+    {
+      "id": "publicacion-1",
+      "etiqueta": "Novedad · Ejemplo",
+      "titulo": "Sonido para tus reuniones",
+      "fecha": "2026-10-31",
+      "contenido": "Estamos preparando opciones de audio para reuniones y celebraciones. Contáctanos para conocer los equipos disponibles."
+    },
+    {
+      "id": "publicacion-2",
+      "etiqueta": "Consejo · Ejemplo",
+      "titulo": "Planea el audio de tu evento",
+      "fecha": "2026-10-31",
+      "contenido": "Cuéntanos cuántas personas asistirán y si tu evento será en interior o exterior. Estos detalles nos ayudan a proponerte una opción de sonido."
+    }
+  ]
+}

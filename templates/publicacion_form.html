@@ -1,0 +1,35 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}{{ 'Editar' if editando else 'Crear' }} publicación{% endblock %}
+{% block contenido %}
+<h1>{{ 'Editar' if editando else 'Crear' }} publicación</h1>
+<p>Al guardar, el contenido aparecerá en la página pública. La fecha es informativa.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" enctype="multipart/form-data">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <input type="hidden" name="revision" value="{{ revision }}">
+  <label for="titulo">Título</label>
+  <input id="titulo" name="titulo" value="{{ publicacion.titulo }}" maxlength="120" required>
+  <label for="etiqueta">Etiqueta</label>
+  <input id="etiqueta" name="etiqueta" value="{{ publicacion.etiqueta }}" maxlength="50" placeholder="Por ejemplo, Promoción o Evento" required>
+  <label for="fecha">Fecha</label>
+  <input id="fecha" name="fecha" type="date" value="{{ publicacion.fecha }}" required>
+  <label for="contenido">Contenido</label>
+  <textarea id="contenido" name="contenido" rows="8" maxlength="3000" required>{{ publicacion.contenido }}</textarea>
+  {% if publicacion.imagen %}
+  <p>Foto actual</p>
+  <img class="foto-publicacion" src="{{ publicacion.imagen }}" alt="{{ publicacion.textoAlternativo }}">
+  <label class="opcion-checkbox">
+    <input type="checkbox" name="quitar_foto" value="si" {% if quitar_foto %}checked{% endif %}>
+    Quitar la foto al guardar
+  </label>
+  {% endif %}
+  <label for="foto">{{ 'Reemplazar foto (opcional)' if publicacion.imagen else 'Foto (opcional)' }}</label>
+  <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="ayuda-foto">
+  <small id="ayuda-foto">JPG, PNG o WebP. Máximo 5 MB y 20 megapíxeles. Si dejas este campo vacío, se conserva la foto actual.</small>
+  <label for="textoAlternativo">Descripción breve de la foto</label>
+  <input id="textoAlternativo" name="textoAlternativo" value="{{ publicacion.textoAlternativo | default('') }}" maxlength="200" aria-describedby="ayuda-descripcion">
+  <small id="ayuda-descripcion">Completa este campo si la publicación lleva una foto.</small>
+  <button class="boton" type="submit">Guardar publicación</button>
+  <a href="{{ url_for('publications_list') }}">Cancelar</a>
+</form>
+{% endblock %}

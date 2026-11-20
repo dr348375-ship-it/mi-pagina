@@ -1,0 +1,429 @@
+/* Incluye bordes y relleno dentro del tamaño de cada elemento */
+* {
+  box-sizing: border-box;
+}
+
+/* Diseño general de la página */
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 64px 24px;
+  background-color: #111827;
+  color: #f9fafb;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Título principal */
+h1 {
+  max-width: 800px;
+  margin: 0 auto 24px;
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+/* Descripción */
+p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #d1d5db;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Enlace con apariencia de botón */
+.boton {
+  display: inline-block;
+  padding: 16px 28px;
+  border-radius: 8px;
+  background-color: #fbbf24;
+  color: #111827;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.boton:hover {
+  background-color: #f59e0b;
+}
+
+.boton:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    padding: 48px 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+/* Sección del catálogo */
+.catalogo {
+  max-width: 1100px;
+  margin: 80px auto 0;
+}
+
+.catalogo h2 {
+  font-size: 30px;
+  margin: 0 0 16px;
+}
+
+/* Distribución de las tarjetas */
+.equipos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Apariencia de cada tarjeta */
+.tarjeta {
+  padding: 28px;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.tarjeta h3 {
+  margin: 0 0 16px;
+  color: #fbbf24;
+  font-size: 22px;
+}
+
+.tarjeta p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Dos columnas en pantallas medianas */
+@media (max-width: 900px) {
+  .equipos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Una columna en pantallas pequeñas */
+@media (max-width: 600px) {
+  .equipos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fotos del catálogo */
+.foto-equipo {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Menú de navegación */
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.menu a {
+  padding: 12px 16px;
+  color: #f9fafb;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.menu a:hover {
+  background-color: #1f2937;
+  color: #fbbf24;
+}
+
+.menu a:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+/* Espacio al saltar a una sección */
+[id] {
+  scroll-margin-top: 24px;
+}
+
+/* Sección de contacto */
+.contacto {
+  max-width: 800px;
+  margin: 80px auto 0;
+  padding: 40px 24px;
+  background-color: #1f2937;
+  border-radius: 16px;
+}
+
+.contacto h2 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+/* Sección de publicaciones */
+.publicaciones {
+  max-width: 1100px;
+  margin: 80px auto 0;
+}
+
+.publicaciones h2 {
+  margin: 0 0 16px;
+  font-size: 30px;
+}
+
+/* Distribución de las publicaciones */
+.lista-publicaciones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Tarjeta de cada publicación */
+.publicacion {
+  padding: 28px;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #fbbf24;
+  color: #111827;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.publicacion h3 {
+  margin: 20px 0 12px;
+  font-size: 24px;
+}
+
+.publicacion time {
+  display: block;
+  margin-bottom: 16px;
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+.publicacion p {
+  margin: 0 0 20px;
+  font-size: 16px;
+}
+
+.publicacion a {
+  display: inline-block;
+  padding: 12px 0;
+  color: #fbbf24;
+  text-underline-offset: 4px;
+}
+
+.publicacion a:hover {
+  color: #fde68a;
+}
+
+.publicacion a:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+/* Una columna en smartphones */
+@media (max-width: 600px) {
+  .lista-publicaciones {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pie de página */
+.pie-pagina {
+  max-width: 1100px;
+  margin: 80px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid #374151;
+}
+
+.pie-pagina p {
+  margin: 0 auto 12px;
+  font-size: 16px;
+}
+
+.pie-pagina .nombre-negocio {
+  color: #f9fafb;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pie-pagina a {
+  display: inline-block;
+  margin: 8px 0 24px;
+  padding: 12px;
+  color: #fbbf24;
+  text-underline-offset: 4px;
+}
+
+.pie-pagina a:hover {
+  color: #fde68a;
+}
+
+.pie-pagina a:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+.pie-pagina small {
+  display: block;
+  color: #d1d5db;
+  font-size: 14px;
+}
+
+/* Botones para filtrar equipos */
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.filtros button {
+  padding: 12px 20px;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fbbf24;
+  font: inherit;
+  cursor: pointer;
+}
+
+.filtros button:hover {
+  background-color: #374151;
+}
+
+.filtros button[aria-pressed="true"] {
+  background-color: #fbbf24;
+  color: #111827;
+}
+
+.filtros button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+/* Mantiene ocultas las tarjetas que no coinciden */
+.tarjeta[hidden] {
+  display: none;
+}
+
+.cotizar-equipo {
+  margin-top: 24px;
+}
+.publicacion p {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.publicacion h3 {
+  overflow-wrap: anywhere;
+}
+
+.tarjeta h3,
+.tarjeta p {
+  overflow-wrap: anywhere;
+}
+.tarjeta p {
+  white-space: pre-line;
+}
+
+/* Imágenes opcionales de las publicaciones */
+.foto-publicacion {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background-color: #111827;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.foto-publicacion[hidden] {
+  display: none;
+}
+
+/* Identidad de RT Producciones */
+.encabezado-marca {
+  max-width: 1100px;
+  margin: 0 auto 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.marca {
+  display: inline-block;
+  max-width: 100%;
+}
+.marca img {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+.marca:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+.encabezado-marca .menu {
+  margin: 0;
+}
+.presentacion {
+  padding: 48px 0;
+}
+.presentacion .ubicacion {
+  color: #fbbf24;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.presentacion h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  max-width: 760px;
+}
+.logo-pie {
+  display: block;
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 24px;
+}
+.marca-admin {
+  margin-bottom: 28px;
+}
+#estado-contenido:empty {
+  display: none;
+}
+@media (max-width: 800px) {
+  .encabezado-marca {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+  .presentacion {
+    padding: 32px 0;
+  }
+}

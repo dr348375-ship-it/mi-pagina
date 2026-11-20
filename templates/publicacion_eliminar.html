@@ -1,0 +1,11 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}Eliminar publicación{% endblock %}
+{% block contenido %}
+<h1>Eliminar publicación</h1>
+<p>¿Quieres eliminar «{{ publicacion.titulo }}»? Desaparecerá de la página pública y esta acción es permanente.</p>
+<form method="post">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <button class="boton peligro" type="submit">Eliminar publicación</button>
+  <a href="{{ url_for('publications_list') }}">Cancelar y conservar</a>
+</form>
+{% endblock %}

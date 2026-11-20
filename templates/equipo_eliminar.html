@@ -1,0 +1,11 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}Eliminar equipo{% endblock %}
+{% block contenido %}
+<h1>Eliminar equipo</h1>
+<p>¿Quieres eliminar «{{ equipo.nombre }}»? Desaparecerá del catálogo y esta acción es permanente.</p>
+<form method="post">
+  <input type="hidden" name="csrf" value="{{ session.csrf }}">
+  <button class="boton peligro" type="submit">Eliminar equipo</button>
+  <a href="{{ url_for('equipment_list') }}">Cancelar y conservar</a>
+</form>
+{% endblock %}

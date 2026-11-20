@@ -1,0 +1,7 @@
+{% extends 'admin_base.html' %}
+{% block titulo %}Archivo demasiado grande{% endblock %}
+{% block contenido %}
+<h1>Archivo demasiado grande</h1>
+<p>Selecciona una foto de hasta 5 MB y vuelve a completar el formulario.</p>
+<a href="{{ url_for('dashboard') }}">Volver al panel</a>
+{% endblock %}
