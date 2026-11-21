@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"><meta name="theme-color" content="#111827">
+  <title>Administración | RT Producciones</title>
+  <link rel="icon" href="/marca/icono-rt.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/admin.css">
+  <link rel="stylesheet" href="/admin-spark.css">
+  <script type="module" src="/admin-spark.js"></script>
+</head>
+<body>
+<header class="encabezado-marca"><a class="marca" href="/" aria-label="RT Producciones, inicio"><img src="/marca/logo-rt.svg" width="460" height="112" alt="RT Producciones"></a></header>
+<main class="admin-contenedor">
+  <a href="/">Ver página principal</a><h1>Administración</h1>
+  <p id="estado" role="status" aria-live="polite">Conectando…</p>
+  <section id="acceso" hidden>
+    <h2>Iniciar sesión</h2><p>Usa el correo y la contraseña de tu cuenta de administrador.</p>
+    <form id="login"><label for="correo">Correo electrónico</label><input id="correo" type="email" required autocomplete="username">
+      <label for="clave">Contraseña</label><input id="clave" type="password" required autocomplete="current-password">
+      <button class="boton" type="submit">Entrar</button>
+    </form>
+  </section>
+  <section id="sesion" hidden><p id="cuenta"></p><button id="salir" class="boton" type="button">Cerrar sesión</button></section>
+  <section id="panel" hidden>
+    <nav class="admin-navegacion" aria-label="Administrar contenido">
+      <button class="boton" type="button" data-kind="equipos" aria-pressed="true">Equipos</button>
+      <button class="boton" type="button" data-kind="publicaciones" aria-pressed="false">Publicaciones</button>
+    </nav>
+    <p>Elige fotos de la galería. Las fotos nuevas se incorporan al actualizar la página.</p>
+    <button id="nuevo" class="boton" type="button">Agregar equipo</button>
+    <button id="recargar" class="boton" type="button">Actualizar lista</button>
+    <div id="lista"></div>
+    <section id="importacion" class="admin-tarjeta" hidden>
+      <h2>Contenido inicial</h2><p>Importa una sola vez los equipos y las publicaciones de tu proyecto local. No reemplaza contenido existente.</p>
+      <button id="importar" class="boton" type="button">Importar contenido inicial</button>
+    </section>
+  </section>
+  <section id="editor" hidden>
+    <h2 id="titulo-editor" tabindex="-1"></h2>
+    <form id="formulario">
+      <div data-fields="equipos">
+        <label for="nombre">Nombre del equipo</label><input id="nombre" name="nombre" maxlength="120">
+        <label for="categoria">Categoría</label><select id="categoria" name="categoria"><option value="bocinas">Bocinas</option><option value="microfonos">Micrófonos</option><option value="mezcladoras">Mezcladoras</option></select>
+        <label for="descripcion">Descripción</label><textarea id="descripcion" name="descripcion" maxlength="1500" rows="4"></textarea>
+      </div>
+      <div data-fields="publicaciones" hidden>
+        <label for="titulo">Título</label><input id="titulo" name="titulo" maxlength="120">
+        <label for="etiqueta">Etiqueta</label><input id="etiqueta" name="etiqueta" maxlength="50">
+        <label for="fecha">Fecha</label><input id="fecha" name="fecha" type="date">
+        <label for="contenido">Contenido</label><textarea id="contenido" name="contenido" maxlength="3000" rows="6"></textarea>
+      </div>
+      <label for="imagen">Foto de la galería</label><select id="imagen" name="imagen"></select>
+      <img id="vista-foto" class="vista-foto" alt="Vista previa de la foto seleccionada" hidden>
+      <label for="textoAlternativo">Descripción de la foto</label><input id="textoAlternativo" name="textoAlternativo" maxlength="200">
+      <p id="error-formulario" class="error" role="alert"></p>
+      <button class="boton" type="submit">Guardar cambios</button>
+      <button id="cancelar" type="button" class="boton">Cancelar</button>
+    </form>
+  </section>
+  <dialog id="confirmacion">
+    <h2>Eliminar contenido</h2><p id="texto-eliminar"></p><p>Esta acción no se puede deshacer.</p>
+    <form method="dialog"><button value="cancelar" class="boton" autofocus>Cancelar</button><button value="eliminar" class="boton peligro">Eliminar</button></form>
+  </dialog>
+</main>
+<noscript>Activa JavaScript para administrar tu página.</noscript>
+</body></html>

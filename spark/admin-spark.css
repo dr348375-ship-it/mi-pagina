@@ -1,0 +1,14 @@
+[hidden] { display: none !important; }
+.admin-contenedor {max-width: 780px; padding: 24px; margin-bottom: 48px;}
+.admin-contenedor [data-fields] {display: grid; gap: 12px;}
+.admin-contenedor button {min-height: 44px; padding: 12px 20px;}
+.admin-contenedor button:disabled {opacity: .55; cursor: wait;}
+.admin-navegacion {margin-top: 32px;}
+.admin-navegacion button[aria-pressed="false"] {background: #374151; color: #fff;}
+.vista-foto {display:block; width:100%; max-height:240px; object-fit:contain; background:#1f2937; border-radius:12px; margin-top:12px;}
+.admin-tarjeta img {width:100%; max-height:180px; object-fit:contain;}
+dialog {max-width: min(520px, 90vw); background:#111827; color:#fff; border:1px solid #6b7280; border-radius:12px; padding:24px;}
+dialog::backdrop {background:#000a;}
+dialog form {display:flex !important; flex-wrap:wrap; gap:12px;}
+.admin-contenedor :is(button,select):focus-visible {outline:3px solid #fbbf24; outline-offset:4px;}
+@media(max-width:480px) {.admin-contenedor {padding:20px 16px;} .admin-tarjeta {padding:16px;} .admin-acciones button {flex:1;}}

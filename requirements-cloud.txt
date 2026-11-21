@@ -1,0 +1,4 @@
+-r requirements.txt
+gunicorn==23.0.0
+google-cloud-firestore==2.34.1
+google-cloud-storage==3.17.1

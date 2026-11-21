@@ -1,0 +1,14 @@
+{
+  "name": "rt-producciones-spark",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/spark-model.test.mjs",
+    "test:rules": "firebase emulators:exec --only firestore --project demo-rt-spark 'node --test tests/firestore-rules.test.mjs'"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
+    "firebase": "^13.4.0",
+    "firebase-tools": "^15.0.0"
+  }
+}

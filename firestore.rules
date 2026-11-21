@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function admin() {
+      return request.auth != null && request.auth.uid == 'IJmZ8L55pRXL5RWTO67BV06N8Re2';
+    }
+    function text(value, minimum, maximum) {
+      return value is string && value.size() >= minimum && value.size() <= maximum;
+    }
+    function photo(d, required) {
+      return text(d.imagen, required ? 1 : 0, 200) &&
+        (d.imagen == '' || d.imagen.matches('^/Imagenes/[a-zA-Z0-9._-]+[.](png|jpg|jpeg|webp)$')) &&
+        text(d.textoAlternativo, d.imagen == '' ? 0 : 1, 200) &&
+        (d.imagen != '' || d.textoAlternativo == '');
+    }
+    function equipment(d) {
+      return d.keys().hasAll(['nombre','categoria','descripcion','imagen','textoAlternativo','orden','revision']) &&
+        d.keys().hasOnly(['nombre','categoria','descripcion','imagen','textoAlternativo','orden','revision']) &&
+        text(d.nombre,1,120) && text(d.descripcion,1,1500) &&
+        d.categoria in ['bocinas','microfonos','mezcladoras'] && photo(d,true);
+    }
+    function publication(d) {
+      return d.keys().hasAll(['titulo','etiqueta','fecha','contenido','imagen','textoAlternativo','orden','revision']) &&
+        d.keys().hasOnly(['titulo','etiqueta','fecha','contenido','imagen','textoAlternativo','orden','revision']) &&
+        text(d.titulo,1,120) && text(d.etiqueta,1,50) && text(d.contenido,1,3000) &&
+        d.fecha is string && d.fecha.matches('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$') && photo(d,false);
+    }
+    match /administradores/{uid} {
+      allow get: if false;
+      allow list, write: if false;
+    }
+    match /equipos/{id} {
+      allow read: if true;
+      allow create: if admin() && equipment(request.resource.data) && request.resource.data.revision == 1 && request.resource.data.orden is int && request.resource.data.orden >= 0;
+      allow update: if admin() && equipment(request.resource.data) && request.resource.data.orden == resource.data.orden && request.resource.data.revision == resource.data.revision + 1;
+      allow delete: if admin();
+    }
+    match /publicaciones/{id} {
+      allow read: if true;
+      allow create: if admin() && publication(request.resource.data) && request.resource.data.revision == 1 && request.resource.data.orden is int && request.resource.data.orden >= 0;
+      allow update: if admin() && publication(request.resource.data) && request.resource.data.orden == resource.data.orden && request.resource.data.revision == resource.data.revision + 1;
+      allow delete: if admin();
+    }
+    match /configuracion/importacion {
+      allow get: if admin();
+      allow create: if admin() && request.resource.data.keys().hasOnly(['completada']) && request.resource.data.completada == true;
+      allow update, delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

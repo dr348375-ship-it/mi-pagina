@@ -1,11 +1,12 @@
 async function cargarContenido() {
   const estado = document.querySelector("#estado-contenido");
   try {
-    const respuesta = await fetch("/api/contenido");
-    if (!respuesta.ok) {
-      throw new Error("No se pudo cargar el contenido");
-    }
-    const { equipos, publicaciones } = await respuesta.json();
+    const cargarDatos = window.rtLoadContent || (async () => {
+      const respuesta = await fetch('/api/contenido');
+      if (!respuesta.ok) throw new Error('No se pudo cargar el contenido');
+      return respuesta.json();
+    });
+    const { equipos, publicaciones } = await cargarDatos();
     // Datos que mostraremos en el catálogo.
     
     

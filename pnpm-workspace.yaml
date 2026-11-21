@@ -1,0 +1,5 @@
+# Las pruebas usan las implementaciones JavaScript; no requieren scripts nativos.
+allowBuilds:
+  '@firebase/util': false
+  protobufjs: false
+  re2: false

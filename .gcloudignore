@@ -1,0 +1,17 @@
+**
+!Dockerfile
+!requirements.txt
+!requirements-cloud.txt
+!app.py
+!storage.py
+!templates/
+!templates/**
+!Imagenes/
+!Imagenes/**
+!marca/
+!marca/**
+!index.html
+!styles.css
+!script.js
+!admin.css
+!datos-iniciales.json
