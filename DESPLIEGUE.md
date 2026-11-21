@@ -61,3 +61,7 @@ El panel muestra que no está conectado en esa vista. Para pruebas integradas, `
 `app.py`, `storage.py`, `templates/` e `instance/` siguen permitiendo usar el servidor local anterior. Los archivos `Dockerfile`, `requirements-cloud.txt` y `migrate_cloud.py` pertenecen a la propuesta anterior de Blaze y **no se usan para Spark**. `firebase.json` ya no contiene redirecciones a Cloud Run.
 
 Referencias: [Firebase web](https://firebase.google.com/docs/web/setup), [reglas de Firestore](https://firebase.google.com/docs/firestore/security/get-started), [planes de Firebase](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans).
+
+## Repositorio principal
+
+Desde el 20 de noviembre de 2026, el repositorio principal es `https://github.com/dr348375-ship-it/mi-pagina.git`, rama `main` y remoto `origin`. Por indicación del propietario, los próximos cambios del proyecto se guardan y se suben allí. El repositorio anterior `Tomilyk/RT_Producciones` queda como referencia en el remoto `anterior`. Subir a GitHub no publica automáticamente los cambios en Firebase; la publicación usa los comandos descritos arriba.
